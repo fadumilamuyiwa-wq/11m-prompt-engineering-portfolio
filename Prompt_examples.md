@@ -1,3 +1,7 @@
+## Author: Fadumila Muyiwa  
+## Role: AI Prompt Engineer
+
+
 JSON extraction
 You are an information extraction system.
 
