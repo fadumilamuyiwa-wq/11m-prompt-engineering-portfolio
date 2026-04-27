@@ -1,0 +1,51 @@
+## Author: Fadumila Muyiwa  
+## Role: AI Prompt Engineer
+
+Python (OpenAI-style API)
+
+python
+from openai import OpenAI
+
+client = OpenAI(api_key="your_api_key")
+
+response = client.chat.completions.create(
+    model="gpt-4.1-mini",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant"},
+        {"role": "user", "content": "Extract name and date from: John met Mary on June 2."}
+    ],
+    temperature=0
+)
+
+print(response.choices[0].message.content)
+
+Example with Structured Output Prompt
+
+python
+prompt = """
+Extract name and date. Return JSON only.
+
+Text: John met Mary on June 2.
+"""
+
+response = client.chat.completions.create(
+    model="gpt-4.1-mini",
+    messages=[{"role": "user", "content": prompt}],
+    temperature=0
+)
+
+print(response.choices[0].message.content)
+
+CURL Example
+
+BASH
+curl https://api.openai.com/v1/chat/completions \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gpt-4.1-mini",
+    "messages": [
+      {"role": "user", "content": "Summarize AI in one sentence"}
+    ]
+  }'
+
